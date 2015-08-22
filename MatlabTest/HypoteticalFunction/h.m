@@ -1,5 +1,6 @@
-function value = h(theta,x)
+function value = h(theta,X)
+%The hypothetical function
 	
-	value = x'*theta;
+	value = X*theta;
 
 end;

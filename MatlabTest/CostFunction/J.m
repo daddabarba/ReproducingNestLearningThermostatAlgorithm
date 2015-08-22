@@ -1,4 +1,6 @@
 function j = J(X , y , theta)
+%the cost function returns the error of 
+%the Hypothetical function
 
 	m = size(X,1);
 

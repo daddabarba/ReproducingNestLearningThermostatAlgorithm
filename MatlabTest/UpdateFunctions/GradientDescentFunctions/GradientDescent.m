@@ -1,4 +1,5 @@
 function theta = GradientDescent(theta , X , y , alpha , n )
+%Perform gradient descent on theta values
 
 	lambda = GetLambda();
 	

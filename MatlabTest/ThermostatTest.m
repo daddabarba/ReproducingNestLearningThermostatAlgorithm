@@ -79,4 +79,4 @@ inx = [1 ; inx];
 inx(2:length(inx)) = (inx(2:length(inx)) - mu') ./ sigma';
 
 %Calulating the y according to the hypothetical function
-h(theta,inx)
+h(theta,inx')
