@@ -1,11 +1,13 @@
-function theta = GradientDescent(theta , X , y , alpha , n , m)
+function theta = GradientDescent(theta , X , y , alpha , n )
 
 	lambda = GetLambda();
+	
+	m = size(X,1);
 
 	for i= 1:n
-		delta = ((((X*theta)-y)'*X)/m)'+ ((lambda/m)*[0 ; theta(2:length(theta))]);
+		delta = Gradients(theta , X , y , lambda , m);
 		theta = theta - alpha * delta;
 
-		J(X , y , theta)
+		J(X , y , theta);
 	end;
 end;
