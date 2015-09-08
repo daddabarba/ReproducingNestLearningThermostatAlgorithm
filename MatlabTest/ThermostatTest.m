@@ -60,8 +60,8 @@ Xn = [ones(length(x),1) , Xn]
 %Theta parameters
 theta = GradientDescent(theta,Xn,y,alfa,iterations);
 
-%Receiving a time as input for the test
-in = input("insert a time of the day (use decimal system for the minutes) \n\n");
+%Creating Test Inputs for the test
+in = (1:24)';
 
 %Initializing inx for multiple features
 inx = in;
@@ -69,14 +69,19 @@ inx = in;
 %Creating the polynomial feautures
 for i = 2:degree
 
-	inx = [inx ;in^i];
+	inx = [inx in.^i];
 end;
 
 %adding the X(zero) parameter.
-inx = [1 ; inx];
+inx = [ones(size(inx,1),1) inx];
 
-%Normalizing the input vector
-inx(2:length(inx)) = (inx(2:length(inx)) - mu') ./ sigma';
+%Normalizing the test matrix
+for k = 1:size(inx,1)
+	inx(k,2:end) = (inx(k,2:end) - mu) ./ sigma;
+end;
 
 %Calulating the y according to the hypothetical function
-h(theta,inx')
+ty = h(theta,inx);
+
+%plotting the h function
+plot(in,ty);

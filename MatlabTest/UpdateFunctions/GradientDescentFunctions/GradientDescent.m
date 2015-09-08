@@ -9,6 +9,6 @@ function theta = GradientDescent(theta , X , y , alpha , n )
 		delta = Gradients(theta , X , y , lambda , m);
 		theta = theta - alpha * delta;
 
-		J(X , y , theta);
+		J(X , y , theta , lambda)
 	end;
 end;
